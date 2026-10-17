@@ -1,0 +1,18 @@
+name: ticketdesk-tests
+services:
+  test-db:
+    image: ${TEST_POSTGRES_IMAGE:-postgres:17}
+    environment:
+      POSTGRES_DB: ticketdesk_test
+      POSTGRES_USER: ticketdesk
+      POSTGRES_PASSWORD: local-test-db
+    ports:
+      - "127.0.0.1:${TEST_DB_PORT:-55432}:5432"
+    # Test data is intentionally ephemeral and separate from the demo volume.
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ticketdesk -d ticketdesk_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 20

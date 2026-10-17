@@ -1,0 +1,31 @@
+name: ticketdesk
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ticketdesk
+      POSTGRES_USER: ticketdesk
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-local-demo-db}
+    ports:
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    volumes:
+      - ticketdesk-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ticketdesk -d ticketdesk"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build: .
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/ticketdesk
+      DB_USER: ticketdesk
+      DB_PASSWORD: ${DB_PASSWORD:-local-demo-db}
+      SPRING_PROFILES_ACTIVE: demo
+    ports:
+      - "127.0.0.1:${API_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  ticketdesk-data:

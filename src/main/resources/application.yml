@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ticketdesk-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ticketdesk}
+    username: ${DB_USER:ticketdesk}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
