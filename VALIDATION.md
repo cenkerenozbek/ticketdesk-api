@@ -64,8 +64,9 @@ korundu; yeni yorumlar ve rapor uçtan uca doğrulandı.
 
 ## Sınırlar ve temizlik
 
-- GitHub üzerinde CI çalıştırılmadı. Workflow hem PostgreSQL testlerini hem
-  Docker `seed → down → up → check` akışını içeriyor; eşdeğer adımlar yerelde geçti.
+- GitHub Actions üzerinde `verify` ve `compose-smoke` job'ları başarılı oldu.
+  56 test ve Docker `seed → down → up → check` akışı temiz Ubuntu runner üzerinde geçti.
+  [İlk başarılı CI çalıştırması](https://github.com/cenkerenozbek/ticketdesk-api/actions/runs/39077340973).
 - Kontrollerden sonra yalnız bu görev için açılmış geçici konteyner, ağ ve test
   volume'u kaldırılır. Kullanıcının diğer Docker projelerine dokunulmaz.
 

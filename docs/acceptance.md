@@ -22,4 +22,4 @@ hangi davranışlarının sınandığını gösterir.
 | Oluşturma ve sonraki okumalarda zaman değişmez | Talep/yorum PostgreSQL regresyon kontrolleri ve Linux Docker smoke |
 
 Test komutları README'dedir. Güncel ortam, sonuçlar ve sınırlar `VALIDATION.md`
-dosyasında kayıtlıdır. CI tanımlıdır; GitHub üzerinde çalıştırılması henüz doğrulanmadı.
+dosyasında kayıtlıdır. CI GitHub üzerinde başarılı çalıştı; `verify` ve `compose-smoke` kontrolleri geçti.

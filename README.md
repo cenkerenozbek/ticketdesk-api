@@ -1,5 +1,7 @@
 # TicketDesk API
 
+[![Verify](https://github.com/cenkerenozbek/ticketdesk-api/actions/workflows/verify.yml/badge.svg)](https://github.com/cenkerenozbek/ticketdesk-api/actions/workflows/verify.yml)
+
 Java/Spring junior portfolyo projesi. Talep açma, filtreli listeleme, detay, durum değiştirme,
 durum geçmişi, yorumlar ve durum bazında rapor özellikleri uygulanmıştır.
 Teslimin doğrulama durumu [VALIDATION.md](VALIDATION.md) dosyasındadır.
@@ -238,7 +240,7 @@ docker compose exec -T db psql -U ticketdesk -d ticketdesk < docs/sql-practice.s
 
 ## Sıradaki aşama
 
-1. GitHub üzerinde CI çalıştırma ve kısa demo kaydı.
+1. Kısa demo kaydı ve proje kararlarını açıklama.
 2. Kabul senaryolarını kullanıcının bağımsız olarak denemesi ve kodu açıklayabilmesi.
 
 Bu uygulama, kaynak plandaki tüm teslim kontrollerinin tamamlandığı anlamına gelmez.
